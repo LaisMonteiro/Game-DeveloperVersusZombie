@@ -1,0 +1,25 @@
+/* 
+PALETA DE CORES
+#314047 - AZUL MEDIO ESCURO,
+#1d292d - AZUL ESCURO,
+
+ */
+
+body {
+  background-color: #1d292d;
+  display: grid;
+  justify-content: center;
+}
+
+#canvas {
+  border: 5px solid #314047;
+}
+body button {
+  font-size: 20px;
+  background-color: #314047;
+  color: #fff;
+  padding: 10px 100px;
+  border: 0;
+  border-radius: 5px;
+  margin: 5px;
+}
