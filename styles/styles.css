@@ -1,25 +1,47 @@
 /* 
 PALETA DE CORES
-#314047 - AZUL MEDIO ESCURO,
-#1d292d - AZUL ESCURO,
-
+AZUL MEDIO ESCURO: #314047
+AZUL ESCURO: #1d292d
+VERDE CHARACTER: #9ea869
  */
-
+* {
+  box-sizing: border-box;
+}
+h1 {
+  font-family: 'Reenie Beanie', cursive; 
+  color: #9ea869;
+  font-size: 70px;
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  text-shadow: 2px 7px #425553;
+}
 body {
   background-color: #1d292d;
   display: grid;
   justify-content: center;
 }
 
+.startScreen{
+background-image: url(/images/startScreen.png);
+
+}
+.removeScreen{
+  display: none;
+}
+.btnStart{
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  color: white;
+  display: inline-block;
+  text-align: center;
+  justify-content: center;
+}
 #canvas {
-  border: 5px solid #314047;
+  border: 5px solid #425553;
 }
-body button {
-  font-size: 20px;
-  background-color: #314047;
-  color: #fff;
-  padding: 10px 100px;
-  border: 0;
-  border-radius: 5px;
-  margin: 5px;
-}
+

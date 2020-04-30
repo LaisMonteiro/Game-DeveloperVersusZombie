@@ -4,12 +4,12 @@ class Character {
     this.x = x;
     this.y = y;
     this.jumping = jumping;
-    this.health = health;
+    this.health = health === 100;
     this.x_velocity = x_velocity;
     this.y_velocity = y_velocity;
 
     this.gravity = 40;
-    this.friction = 5;
+    this.friction = 1;
     this.position = "standing";
 
     // -------------------- IMAGES HACKER

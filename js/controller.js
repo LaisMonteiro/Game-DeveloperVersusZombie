@@ -39,6 +39,9 @@ class Controller{
           this.game.shoot('virus')
           playerV.position = 'shoot'
         break;
+        case 13:
+          this.game.start()
+        break;
       }
     })
     window.addEventListener('keyup', (event)=>{

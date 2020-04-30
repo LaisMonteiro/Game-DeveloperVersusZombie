@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="styles/styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <title>Game Project 1 - April 2020 Ironhack</title>
   </head>
   <body>
-      <aside>
-        <button id="start">Start</button>
-        <button id="pause">Pause</button>
-        <button id="reset">Reset</button>
-      </aside>
-      <canvas id="canvas"></canvas>
+    <h1>DEVELOPER versus ZOMBIE</h1>
+    <div class="startScreen" id="removeScreen">
+      <button class="btnStart" onclick="Game.startGame()">PRESS ENTER</button>
+    </div>
+    <canvas id="canvas"></canvas>
     </div>
     <script type="text/javascript" src="js/background.js"></script>
     <script type="text/javascript" src="js/shoot.js"></script>
