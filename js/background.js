@@ -4,7 +4,7 @@ class Background {
     this.image = new Image();
     this.image.src = "images/background.jpg";
   }
-
+  
   drawBackground() {
     const width = this.game.$canvas.width
     const height = this.game.$canvas.height

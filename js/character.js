@@ -4,7 +4,7 @@ class Character {
     this.x = x;
     this.y = y;
     this.jumping = jumping;
-    this.health = health === 100;
+    this.health = health;
     this.x_velocity = x_velocity;
     this.y_velocity = y_velocity;
 
@@ -12,7 +12,7 @@ class Character {
     this.friction = 1;
     this.position = "standing";
 
-    // -------------------- IMAGES HACKER
+    // Images Developer (hacker)
     this.stopedH = new Image();
     this.stopedH.src = "images/hWalk1.png";
     this.stopedHL = new Image();
@@ -28,7 +28,7 @@ class Character {
     this.hPunch2L = new Image();
     this.hPunch2L.src = "images/punchInvert.png";
 
-    // -------------------- IMAGES VIRUS
+    // Images Zombie (virus)
     this.stopedV = new Image();
     this.stopedV.src = "images/virusStoped.png";
     this.stopedVL = new Image();
@@ -43,10 +43,9 @@ class Character {
     this.vPunch.src = "images/punchV.png";
     this.vPunchL = new Image();
     this.vPunchL.src = "images/punchVL.png";
- 
   }
 
-  // -------------------- CHARACTERS FUNCTIONS
+  //  CHARACTERS FUNCTIONS
   jump() {
     if (this.jumping) {
       this.y_velocity = 5;
@@ -65,10 +64,8 @@ class Character {
 
   movePlayer() {
     const { x, y, x_velocity, y_velocity, gravity, friction } = this;
-
     let newX_velocity = x_velocity / (1 + (friction / 1000) * 16);
     let newY_velocity = y_velocity + (gravity / 1000) * 16;
-
     let newX = x + newX_velocity;
     let newY = y + newY_velocity;
 
@@ -76,7 +73,6 @@ class Character {
       newY_velocity = 0;
       newY = y;
     }
-
     if (this.playerLimitsX()) {
       newX_velocity = 0;
       newX = x;
@@ -106,8 +102,9 @@ class Character {
     }
   }
 
-  // -------------------- DRAW CHARACTERS
+  // DRAW CHARACTERS
 
+  //Draw Developer (Hacker)
   drawH(enemyX) {
     const context = this.game.$canvas.getContext("2d");
     if (this.x < enemyX) {
@@ -128,7 +125,8 @@ class Character {
       }
     }
   }
-
+  
+  //Draw Zombie (virus)
   drawV(enemyX) {
     const context = this.game.$canvas.getContext("2d");
     if (this.x < enemyX) {

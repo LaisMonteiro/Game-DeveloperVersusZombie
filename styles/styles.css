@@ -1,47 +1,33 @@
 /* 
-PALETA DE CORES
-AZUL MEDIO ESCURO: #314047
-AZUL ESCURO: #1d292d
-VERDE CHARACTER: #9ea869
+CORES:
+- AZUL MEDIO ESCURO: #314047
+- AZUL ESCURO: #1d292d
+- VERDE CHARACTER: #9ea869
  */
-* {
+*{
   box-sizing: border-box;
 }
 h1 {
   font-family: 'Reenie Beanie', cursive; 
   color: #9ea869;
-  font-size: 70px;
+  font-size: 75px;
   display: flex;
   justify-content: center;
-  margin: 10px;
+  margin: auto;
   text-shadow: 2px 7px #425553;
 }
 body {
-  background-color: #1d292d;
-  display: grid;
+  background-image: url(/images/1b.png);
+  background-repeat: repeat;
+  background-size: cover;
   justify-content: center;
 }
-
-.startScreen{
-background-image: url(/images/startScreen.png);
-
-}
-.removeScreen{
-  display: none;
-}
-.btnStart{
+.btnPause{
   background-color: transparent;
   background-repeat: no-repeat;
-  border: none;
-  overflow: hidden;
-  position: relative;
   cursor: pointer;
   color: white;
-  display: inline-block;
+  display: flex;
   text-align: center;
   justify-content: center;
 }
-#canvas {
-  border: 5px solid #425553;
-}
-

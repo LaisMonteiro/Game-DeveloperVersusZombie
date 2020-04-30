@@ -13,7 +13,9 @@ class Shoot {
     this.imageVirus.src = "images/virus.png";
   }
 
+
   decideSide(){
+    // the players looking to each other
     if (this.x < this.enemyX){
       this.side = "left";
     } else {
