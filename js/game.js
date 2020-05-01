@@ -10,6 +10,7 @@ class Game {
     this.background = new Background(this);
     this.playerH = new Character(this, 300, 430, false, 100, 0, 0);
     this.playerV = new Character(this, 750, 455, false, 100, 0, 0);
+    this.mapScore = new MapScore(this);
     this.controllers = new Controller(this);
     this.controllers.setKeyBinding();
     //starting the shooting arrays
@@ -17,6 +18,7 @@ class Game {
     this.playerVShoots = [];
     //starting loop
     this.loop();
+    this.theme();
   }
 
   pauseGame() {
@@ -27,6 +29,7 @@ class Game {
       this.loop();
     }
   }
+
 
   shoot(character) {
     const image = character === "hacker";
@@ -65,7 +68,7 @@ class Game {
         this.playerVShoots[i].y > this.playerH.y &&
         this.playerVShoots[i].y < this.playerH.y + 50
       ){
-        this.playerH.health -= 10;
+        this.playerH.health -= 5;
         this.playerVShoots.splice(i, 1);
       } else if (
         // if zoombie are looking to the right
@@ -75,7 +78,7 @@ class Game {
         this.playerVShoots[i].y > this.playerH.y &&
         this.playerVShoots[i].y < this.playerH.y + 50
       ) {
-        this.playerH.health -= 10;
+        this.playerH.health -= 5;
         this.playerVShoots.splice(i, 1);
       }
     }
@@ -92,7 +95,7 @@ class Game {
         this.playerHShoots[i].y < this.playerV.y + 50
       ) {
         console.log("player health before", this.playerV.health);
-        this.playerV.health -= 10;
+        this.playerV.health -= 5;
         console.log("player health after", this.playerV.health);
         this.playerHShoots.splice(i, 1);
       } else if (
@@ -103,7 +106,7 @@ class Game {
         this.playerHShoots[i].y > this.playerV.y &&
         this.playerHShoots[i].y < this.playerV.y + 50
       ) {
-        this.playerV.health -= 10;
+        this.playerV.health -= 5;
         this.playerHShoots.splice(i, 1);
       }
       console.log(this.playerV.health);
@@ -115,7 +118,8 @@ class Game {
     this.background.drawBackground();
     this.playerH.drawH(this.playerV.x);
     this.playerV.drawV(this.playerH.x);
-
+    this.mapScore.drawMapScore();
+    
     for (let shoot of this.playerVShoots) {
       shoot.drawShootV();
     }
@@ -128,10 +132,33 @@ class Game {
     this.runLogic();
     this.drawEverything();
     this.gameOver();
+
     if (this.gameIsRunning) {
       window.requestAnimationFrame((timestamp) => this.loop(timestamp));
+    } 
+    
+  }
+
+  theme(){
+    if (this.playerH.health > 0 && this.playerV.health > 0){
+      this.music = new Audio("London_Fog.mp3");
+      this.music.play();
+    } else if (this.playerH.health <= 0){
+      // this.music.pause();
+      this.music = new Audio("zombieW.wav");
+      this.music.play();
+    } else if (this.playerV.health <= 0) {
+      // this.music.pause();
+      // this.musicZ.pause();
+      this.music = new Audio("devW.wav");
+      this.music.play();
+    } else {
+      this.music.pause();
+      // this.musicH.pause();
+      // this.musicZ.pause();
     }
   }
+  // this.gameIsRunning && 
 
   gameOver() {
     if (this.playerH.health <= 0) {
@@ -139,12 +166,14 @@ class Game {
       this.image = new Image();
       this.image.src = "images/zombieWins.gif";
       this.context.drawImage(this.image,0,0,this.$canvas.width,this.$canvas.height);
+      // this.gameIsRunning = false;
+      
     } else if (this.playerV.health <= 0) {
       this.context.clearRect(0, 0, this.$canvas.width, this.$canvas.height);
       this.image = new Image();
       this.image.src = "images/developerWins.gif";
-      this.context.drawImage(this.image,0,0,this.$canvas.width,this.$canvas.height
-      );
+      this.context.drawImage(this.image,0,0,this.$canvas.width,this.$canvas.height);
+    
     }
   }
 }

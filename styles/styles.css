@@ -30,4 +30,10 @@ body {
   display: flex;
   text-align: center;
   justify-content: center;
+  border: none;
+}
+.startScreen{
+  display: flex;
+  justify-content: center;
+
 }

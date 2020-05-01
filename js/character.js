@@ -8,8 +8,8 @@ class Character {
     this.x_velocity = x_velocity;
     this.y_velocity = y_velocity;
 
-    this.gravity = 40;
-    this.friction = 1;
+    this.gravity = 30;
+    this.friction = 2;
     this.position = "standing";
 
     // Images Developer (hacker)
@@ -109,19 +109,19 @@ class Character {
     const context = this.game.$canvas.getContext("2d");
     if (this.x < enemyX) {
       if (this.position == "walking") {
-        context.drawImage(this.hWalk3, this.x, this.y, 150, 210);
+        context.drawImage(this.hWalk3, this.x, this.y, 180, 210);
       } else if (this.position == "standing") {
         context.drawImage(this.stopedH, this.x, this.y, 200, 200);
       } else if (this.position == "shoot") {
-        context.drawImage(this.hPunch2, this.x, this.y, 150, 210);
+        context.drawImage(this.hPunch2, this.x, this.y, 180, 210);
       }
     } else if (this.x > enemyX) {
       if (this.position == "walking") {
-        context.drawImage(this.hWalk3L, this.x, this.y, 150, 210);
+        context.drawImage(this.hWalk3L, this.x, this.y, 180, 210);
       } else if (this.position == "standing") {
-        context.drawImage(this.stopedHL, this.x, this.y, 200, 200);
+        context.drawImage(this.stopedHL, this.x, this.y, 250, 200);
       } else if (this.position == "shoot") {
-        context.drawImage(this.hPunch2L, this.x, this.y, 150, 210);
+        context.drawImage(this.hPunch2L, this.x, this.y, 180, 210);
       }
     }
   }

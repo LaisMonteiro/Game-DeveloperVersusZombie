@@ -19,6 +19,8 @@ window.addEventListener("keydown", (event) => {
   if (!game.gameIsRunning) {
     if (event.keyCode === 13) {
       game.startGame();
+      }
     }
-  }
 });
+
+
